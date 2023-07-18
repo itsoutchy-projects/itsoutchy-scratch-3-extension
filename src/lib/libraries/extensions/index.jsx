@@ -70,6 +70,28 @@ export default [
     {
         name: (
             <FormattedMessage
+                defaultMessage="itsoutchy"
+                description="Name for the itsoutchy extension"
+                id="gui.extension.itsoutchy.name"
+            />
+        ),
+        extensionId: 'itsoutchy',
+        collaborator: 'itsoutchy',
+        iconURL: translateIconURL,
+        insetIconURL: translateInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Extra blocks"
+                description="Description for the itsoutchy extension"
+                id="gui.extension.itsoutchy.description"
+            />
+        ),
+        featured: true,
+        internetConnectionRequired: false
+    },
+    {
+        name: (
+            <FormattedMessage
                 defaultMessage="Pen"
                 description="Name for the 'Pen' extension"
                 id="gui.extension.pen.name"
