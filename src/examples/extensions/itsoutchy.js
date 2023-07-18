@@ -8,7 +8,7 @@ itsoutchyExtension.prototype.getInfo = function () {
     return {
         // Required: the machine-readable name of this extension.
         // Will be used as the extension's namespace. Must not contain a '.' character.
-        id: 'someBlocks',
+        id: 'itsoutchy',
 
         // Optional: the human-readable name of this extension as string.
         // This and any other string to be displayed in the Scratch UI may either be
@@ -20,7 +20,7 @@ itsoutchyExtension.prototype.getInfo = function () {
         // internally namespace the messages such that two extensions could have
         // messages with the same ID without colliding.
         // See also: https://github.com/yahoo/react-intl/wiki/API#definemessages
-        name: 'Some Blocks',
+        name: 'itsoutchy',
 
         // Optional: URI for an icon for this extension. Data URI OK.
         // If not present, use a generic icon.
@@ -35,6 +35,19 @@ itsoutchyExtension.prototype.getInfo = function () {
         // Required: the list of blocks implemented by this extension,
         // in the order intended for display.
         blocks: [
+            {
+                opcode: 'itsoutchy-alert',
+                blockType: Scratch.BlockType.COMMAND,
+                blockAllThreads: false,
+                text: 'alert',
+                func: 'alert [MESSAGE]',
+                arguments: {
+                    MESSAGE: {
+                        type: Scratch.ArgumentType.string,
+                        defaultValue: "yay!"
+                    }
+                },
+            },
             {
                 opcode: 'example-noop',
                 blockType: Scratch.BlockType.COMMAND,
@@ -217,6 +230,10 @@ itsoutchyExtension.prototype.myReporter = function (args) {
 };
 
 itsoutchyExtension.prototype.noop = function () {
+};
+
+itsoutchyExtension.prototype.alert = function (args) {
+    window.alert(args.MESSAGE);
 };
 
 itsoutchyExtension.prototype.returnTrue = function () {
