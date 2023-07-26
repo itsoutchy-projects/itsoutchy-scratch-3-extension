@@ -68,7 +68,21 @@ itsoutchyExtension.prototype.getInfo = function () {
                         defaultValue: 1
                     }
                 },
-                func: 'noop'
+                func: 'choose'
+            },
+            {
+                opcode: 'loopif',
+                blockType: Scratch.BlockType.CONDITIONAL,
+                branchCount: 1,
+                isTerminal: true,
+                blockAllThreads: true,
+                text: 'forever if [BOOLEAN]',
+                arguments: {
+                    BOOLEAN: {
+                        type: Scratch.ArgumentType.BOOLEAN
+                    }
+                },
+                func: 'foreverif'
             },
             {
                 opcode: 'isVarTrue',
@@ -179,8 +193,8 @@ itsoutchyExtension.prototype.getInfo = function () {
             {
                 opcode: 'example-hat',
                 blockType: Scratch.BlockType.HAT,
-                text: 'after forever',
-                func: 'returnFalse'
+                text: 'start',
+                func: 'returnTrue'
             },
             {
                 // Another block...
@@ -263,6 +277,14 @@ itsoutchyExtension.prototype.whenbooltrue = function (args) {
     return args.BOOLEAN;
 };
 
+itsoutchyExtension.prototype.foreverif = function(args) {
+    while (true) {
+        if (args.BOOLEAN == true) {
+            return 1;
+        }
+    }
+}
+
 itsoutchyExtension.prototype.alert = function (args) {
     //alert(args.MESSAGE);
     console.log("Sorry, but alerts are unsupported as of now!");
@@ -272,8 +294,8 @@ itsoutchyExtension.prototype.returnTrue = function () {
     return true;
 };
 
-itsoutchyExtension.prototype.returnFalse = function () {
-    return false;
+itsoutchyExtension.prototype.choose = function (args) {
+    return args.BRANCH;
 };
 
 Scratch.extensions.register(new itsoutchyExtension());
