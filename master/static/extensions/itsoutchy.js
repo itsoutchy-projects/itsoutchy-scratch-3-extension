@@ -71,6 +71,18 @@ itsoutchyExtension.prototype.getInfo = function () {
                 func: 'noop'
             },
             {
+                opcode: 'isVarTrue',
+                blockType: Scratch.BlockType.BOOLEAN,
+                text: '[VAR]',
+                arguments: {
+                    VAR: {
+                        type: Scratch.ArgumentType.STRING,
+                        defaultValue: "true"
+                    }
+                },
+                func: 'varTrue'
+            },
+            {
                 // Required: the machine-readable name of this operation.
                 // This will appear in project JSON. Must not contain a '.' character.
                 opcode: 'myReporter', // becomes 'someBlocks.myReporter'
@@ -227,6 +239,10 @@ itsoutchyExtension.prototype.myReporter = function (args) {
     const result = args.TEXT.charAt(args.LETTER_NUM);
 
     return ['Letter ', args.LETTER_NUM, ' of ', args.TEXT, ' is ', result, '.'].join('');
+};
+
+itsoutchyExtension.prototype.varTrue = function (args) {
+    return args.VAR == "true";
 };
 
 itsoutchyExtension.prototype.noop = function () {
