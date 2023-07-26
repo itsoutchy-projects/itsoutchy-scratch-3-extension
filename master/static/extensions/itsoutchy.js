@@ -83,6 +83,17 @@ itsoutchyExtension.prototype.getInfo = function () {
                 func: 'varTrue'
             },
             {
+                opcode: 'whenBOOLtrue',
+                blockType: Scratch.BlockType.HAT,
+                text: 'when [BOOLEAN]',
+                arguments: {
+                    BOOLEAN: {
+                        type: Scratch.ArgumentType.BOOLEAN
+                    }
+                },
+                func: 'whenbooltrue'
+            },
+            {
                 // Required: the machine-readable name of this operation.
                 // This will appear in project JSON. Must not contain a '.' character.
                 opcode: 'myReporter', // becomes 'someBlocks.myReporter'
@@ -248,8 +259,13 @@ itsoutchyExtension.prototype.varTrue = function (args) {
 itsoutchyExtension.prototype.noop = function () {
 };
 
+itsoutchyExtension.prototype.whenbooltrue = function (args) {
+    return args.BOOLEAN;
+};
+
 itsoutchyExtension.prototype.alert = function (args) {
-    alert(args.MESSAGE);
+    //alert(args.MESSAGE);
+    console.log("Sorry, but alerts are unsupported as of now!");
 };
 
 itsoutchyExtension.prototype.returnTrue = function () {
