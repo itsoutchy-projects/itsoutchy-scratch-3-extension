@@ -249,7 +249,7 @@ itsoutchyExtension.prototype.noop = function () {
 };
 
 itsoutchyExtension.prototype.alert = function (args) {
-    window.alert(args.MESSAGE);
+    alert(args.MESSAGE);
 };
 
 itsoutchyExtension.prototype.returnTrue = function () {
