@@ -1,4 +1,4 @@
-class NitroBlock {
+class utils {
     getInfo() {
         return {
             "id": "utils",
