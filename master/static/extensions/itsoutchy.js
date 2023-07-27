@@ -99,6 +99,22 @@ itsoutchyExtension.prototype.getInfo = function () {
                 func: 'varTrue'
             },
             {
+                opcode: 'greaterOrEqual',
+                blockType: Scratch.BlockType.BOOLEAN,
+                text: '[VAR1] >= [VAR2]',
+                arguments: {
+                    VAR1: {
+                        type: Scratch.ArgumentType.NUMBER,
+                        defaultValue: "1"
+                    },
+                    VAR2: {
+                        type: Scratch.ArgumentType.NUMBER,
+                        defaultValue: "1"
+                    }
+                },
+                func: 'greaterOrEqual'
+            },
+            {
                 opcode: 'whenBOOLtrue',
                 blockType: Scratch.BlockType.HAT,
                 text: 'when [BOOLEAN]',
@@ -270,6 +286,10 @@ itsoutchyExtension.prototype.myReporter = function (args) {
 
 itsoutchyExtension.prototype.varTrue = function (args) {
     return args.VAR == "true";
+};
+
+itsoutchyExtension.prototype.greaterOrEqual = function (args) {
+    return args.VAR1 >= args.VAR2;
 };
 
 itsoutchyExtension.prototype.noop = function () {
