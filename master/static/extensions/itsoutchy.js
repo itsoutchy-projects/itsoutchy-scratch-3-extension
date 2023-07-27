@@ -32,7 +32,7 @@ itsoutchyExtension.prototype.getInfo = function () {
 
         // Optional: Link to documentation content for this extension.
         // If not present, offer no link.
-        docsURI: 'https://....',
+        docsURI: 'https://github.com/itsoutchy-projects/itsoutchy-scratch-3-extension/blob/gh-pages/master/docs.md',
 
         // Required: the list of blocks implemented by this extension,
         // in the order intended for display.
